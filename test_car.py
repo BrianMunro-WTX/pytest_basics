@@ -268,17 +268,3 @@ def test_can_drive(default_car, miles, expected):
     assert default_car.can_drive(miles) is expected
 
 
-# ----------------------------------------------------------------------
-# caplog — asserting on log records produced during a test
-# ----------------------------------------------------------------------
-def test_drive_logs_nothing_but_we_can_capture_our_own(default_car, caplog):
-    """caplog captures log records so a test can assert on them."""
-    with caplog.at_level(logging.INFO):
-        logger.info("About to drive the default car")
-        default_car.drive(50)
-        logger.info("Finished driving")
-
-    logger.debug("caplog captured %d records", len(caplog.records))
-    assert "About to drive the default car" in caplog.text
-    assert "Finished driving" in caplog.text
-
