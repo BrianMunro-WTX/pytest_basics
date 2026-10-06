@@ -19,7 +19,6 @@ class Car:
             return 300000
         else:
             return 150000
-
         
     def drive(self, miles):
         if miles < 0:
@@ -29,8 +28,6 @@ class Car:
         else:
             self._mileage += miles
             print(f"Driven {miles} miles. Total mileage is now {self._mileage} miles.")
-
-    # --- Methods below are designed to be tested with pytest ---
 
     def get_age(self, current_year=2026):
         """Return the car's age. Good for basic assert tests."""
